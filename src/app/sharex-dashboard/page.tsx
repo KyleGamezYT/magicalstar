@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import ShareXDashboard from '../../components/ShareXDashboard'
-import LoginForm from './LoginForm'
+import LoginForm from '../../components/LoginForm'
 import BackgroundSparkles from '../../components/BackgroundSparkles'
 
 export default function ShareXDashboardPage() {
