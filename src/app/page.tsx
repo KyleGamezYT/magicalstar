@@ -18,12 +18,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-mystical-black via-gray-900 to-black relative overflow-hidden">
-    
+
       <BackgroundSparkles />
-      
+
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-sm mx-auto text-center space-y-10">
-          
+
           {/* Mystical Star Emblem */}
           <div className="flex justify-center mb-8">
             <div className="scale-125">

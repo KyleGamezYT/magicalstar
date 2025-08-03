@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import MysticalStar from '../../../components/MysticalStar'
 import BackgroundSparkles from '../../../components/BackgroundSparkles'

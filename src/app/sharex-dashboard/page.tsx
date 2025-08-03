@@ -28,7 +28,7 @@ export default function ShareXDashboardPage() {
     <main className="min-h-screen bg-gradient-to-br from-mystical-black via-gray-900 to-black relative overflow-hidden">
       {/* Background sparkles */}
       <BackgroundSparkles />
-      
+
       <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header with Logout */}
@@ -66,4 +66,4 @@ export default function ShareXDashboardPage() {
       </div>
     </main>
   )
-} 
+}
