@@ -4,7 +4,7 @@
   "Name": "Kyle's Mystical ShareX - mxtor.net",
   "DestinationType": "ImageUploader, TextUploader, FileUploader",
   "RequestMethod": "POST",
-  "RequestURL": "https://mxtor.net/upload.php",
+  "RequestURL": "https://mxtor.net/api/upload",
   "Body": "MultipartFormData",
   "FileFormName": "sharex",
   "Arguments": {

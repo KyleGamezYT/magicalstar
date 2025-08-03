@@ -4,7 +4,7 @@ import { writeFile } from 'fs/promises'
 import { join } from 'path'
 import { existsSync, mkdirSync } from 'fs'
 
-const SECRET_KEY = "KEYGOESHERE" // Set this as your secret key
+const SECRET_KEY = "your-secret-key-here" // Change this to your actual secret key
 const SHAREX_DIR = "images/" // File directory
 const DOMAIN_URL = "https://mxtor.net" // Your domain
 const LENGTH_OF_STRING = 5 // Length of the filename
