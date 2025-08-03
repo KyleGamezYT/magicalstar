@@ -44,6 +44,12 @@ export default function ShareXDashboardPage() {
               <span className="text-gray-400 text-sm">
                 Welcome, <span className="text-glow-blue font-medium">{currentUser}</span>
               </span>
+              <Link
+                href="/sharex-dashboard/admin"
+                className="px-4 py-2 bg-glow-blue/20 text-glow-blue rounded-lg text-sm font-medium hover:bg-glow-blue/30 transition-colors"
+              >
+                Admin
+              </Link>
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 bg-red-500/20 text-red-400 rounded-lg text-sm font-medium hover:bg-red-500/30 transition-colors"
