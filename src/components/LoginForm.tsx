@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { validateCredentials } from '../../config/auth'
+import { validateCredentials } from '../config/auth'
 
 interface LoginFormProps {
   onLogin: (username: string) => void

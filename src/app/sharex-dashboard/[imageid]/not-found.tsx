@@ -1,4 +1,4 @@
-import BackgroundSparkles from '../components/BackgroundSparkles'
+import BackgroundSparkles from '../../../components/BackgroundSparkles'
 
 export default function ShareXDashboardLoading() {
   return (

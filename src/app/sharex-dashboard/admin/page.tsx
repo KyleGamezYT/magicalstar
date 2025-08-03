@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import MysticalStar from '../../../components/MysticalStar'
 import BackgroundSparkles from '../../../components/BackgroundSparkles'
-import { AUTH_CONFIG } from '../../../config/auth'
+import { AUTH_CONFIG } from '../../config/auth'
 
 export default function AdminPage() {
   const [currentPassword, setCurrentPassword] = useState('')
