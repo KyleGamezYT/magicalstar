@@ -3,89 +3,120 @@ import { NextRequest, NextResponse } from 'next/server'
 import { writeFile } from 'fs/promises'
 import { join } from 'path'
 import { existsSync, mkdirSync } from 'fs'
-import { validateCredentials } from '../../../config/auth'
+
+const SECRET_KEY = "KEYGOESHERE" // Set this as your secret key
+const SHAREX_DIR = "images/" // File directory
+const DOMAIN_URL = "https://mxtor.net" // Your domain
+const LENGTH_OF_STRING = 5 // Length of the filename
+
+function randomString(length: number): string {
+  const keys = '0123456789abcdefghijklmnopqrstuvwxyz'
+  let result = ''
+  for (let i = 0; i < length; i++) {
+    result += keys[Math.floor(Math.random() * keys.length)]
+  }
+  return result
+}
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
-    const file = formData.get('file') as File
-    
+    const secret = formData.get('secret') as string
+    const file = formData.get('sharex') as File
+
+    // Check if secret is provided
+    if (!secret) {
+      return NextResponse.json(
+        'No post data recieved',
+        { 
+          status: 400,
+          headers: { 
+            'Content-Type': 'text/plain',
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
+      )
+    }
+
+    // Validate secret key
+    if (secret !== SECRET_KEY) {
+      return NextResponse.json(
+        'Invalid Secret Key',
+        { 
+          status: 401,
+          headers: { 
+            'Content-Type': 'text/plain',
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
+      )
+    }
+
+    // Check if file is provided
     if (!file) {
       return NextResponse.json(
-        { error: 'No file provided' },
+        'File upload failed - No file provided',
         { 
           status: 400,
           headers: { 
-            'Content-Type': 'application/json',
+            'Content-Type': 'text/plain',
             'Access-Control-Allow-Origin': '*'
           }
         }
       )
     }
 
-    if (!(file instanceof File)) {
-      return NextResponse.json(
-        { error: 'Invalid file format' },
-        { 
-          status: 400,
-          headers: { 
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          }
-        }
-      )
-    }
-
-    // Generate unique ID for the file
-    const fileId = Math.random().toString(36).substr(2, 8)
-    const timestamp = Date.now()
+    // Generate random filename
+    const filename = randomString(LENGTH_OF_STRING)
     const fileExtension = file.name.split('.').pop() || 'bin'
-    const sanitizedName = `${fileId}_${timestamp}.${fileExtension}`
+    const finalFilename = `${filename}.${fileExtension}`
 
-    // Create uploads directory if it doesn't exist
-    const uploadsDir = join(process.cwd(), 'public', 'uploads')
+    // Create images directory if it doesn't exist
+    const uploadsDir = join(process.cwd(), 'public', SHAREX_DIR)
     if (!existsSync(uploadsDir)) {
       mkdirSync(uploadsDir, { recursive: true })
     }
 
-    // Save file to public/uploads directory
+    // Save file
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
-    const filePath = join(uploadsDir, sanitizedName)
-    await writeFile(filePath, buffer)
-
-    // Get the full URL including domain
-    const protocol = request.headers.get('x-forwarded-proto') || 'http'
-    const host = request.headers.get('host') || 'localhost:3000'
-    const baseUrl = `${protocol}://${host}`
-    const fullUrl = `${baseUrl}/uploads/${sanitizedName}`
-
-    // Return response in ShareX expected format
-    const response = {
-      url: fullUrl,
-      deleteUrl: `${baseUrl}/api/delete/${fileId}`,
-      name: file.name,
-      type: file.type || 'application/octet-stream',
-      size: file.size
+    const filePath = join(uploadsDir, finalFilename)
+    
+    try {
+      await writeFile(filePath, buffer)
+      
+      // Return the direct URL like the PHP script
+      const fileUrl = `${DOMAIN_URL}/${SHAREX_DIR}${finalFilename}`
+      return new NextResponse(fileUrl, {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/plain',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        },
+      })
+    } catch (writeError) {
+      return NextResponse.json(
+        'File upload failed - CHMOD/Folder doesn\'t exist?',
+        { 
+          status: 500,
+          headers: { 
+            'Content-Type': 'text/plain',
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
+      )
     }
 
-    console.log('File uploaded successfully:', response)
-    return NextResponse.json(response, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-    })
   } catch (error) {
     console.error('Upload error:', error)
     return NextResponse.json(
-      { error: 'Upload failed' },
+      'File upload failed - Server error',
       { 
         status: 500,
         headers: { 
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain',
           'Access-Control-Allow-Origin': '*'
         }
       }
