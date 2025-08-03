@@ -15,7 +15,10 @@ export async function POST(request: NextRequest) {
         { error: 'No file provided' },
         { 
           status: 400,
-          headers: { 'Content-Type': 'application/json' }
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
         }
       )
     }
@@ -25,7 +28,10 @@ export async function POST(request: NextRequest) {
         { error: 'Invalid file format' },
         { 
           status: 400,
-          headers: { 'Content-Type': 'application/json' }
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
         }
       )
     }
@@ -67,13 +73,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(response, {
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
       },
     })
   } catch (error) {
     console.error('Upload error:', error)
     return NextResponse.json(
       { error: 'Upload failed' },
-      { status: 500 }
+      { 
+        status: 500,
+        headers: { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
     )
   }
 }
@@ -82,5 +97,22 @@ export async function GET() {
   return NextResponse.json({ 
     message: 'Upload API is running',
     timestamp: new Date().toISOString()
+  }, {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+  })
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
   })
 }
