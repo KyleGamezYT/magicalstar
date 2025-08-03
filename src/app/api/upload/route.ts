@@ -21,7 +21,10 @@ function randomString(length: number): string {
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
-    const secret = formData.get('secret') as string
+    const url = new URL(request.url)
+    
+    // Check for secret in both URL parameters and form data
+    const secret = url.searchParams.get('secret') || formData.get('secret') as string
     const file = formData.get('sharex') as File
 
     // Check if secret is provided
