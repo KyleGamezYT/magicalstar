@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import ShareXDashboard from '@/components/ShareXDashboard'
-import LoginForm from '@/components/LoginForm'
-import BackgroundSparkles from '@/components/BackgroundSparkles'
+import ShareXDashboard from '../components/ShareXDashboard'
+import LoginForm from '../components/LoginForm'
+import BackgroundSparkles from '../components/BackgroundSparkles'
 
 export default function ShareXDashboardPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)

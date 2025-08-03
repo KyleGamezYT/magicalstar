@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import ShareXDashboard from '@/components/ShareXDashboard'
-import LoginForm from '@/components/LoginForm'
+import LoginForm from '/components/LoginForm'
 import BackgroundSparkles from '@/components/BackgroundSparkles'
 
 export default function ShareXDashboardPage() {

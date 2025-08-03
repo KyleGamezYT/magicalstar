@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import MysticalStar from '@/components/MysticalStar'
-import BackgroundSparkles from '@/components/BackgroundSparkles'
+import MysticalStar from '../components/MysticalStar'
+import BackgroundSparkles from '../components/BackgroundSparkles'
 
 export default function NotFound() {
   return (

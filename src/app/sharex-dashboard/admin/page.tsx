@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import MysticalStar from '@/components/MysticalStar'
+import MysticalStar from '../components/MysticalStar'
 import BackgroundSparkles from '@/components/BackgroundSparkles'
 import { AUTH_CONFIG } from '/config/auth'
 

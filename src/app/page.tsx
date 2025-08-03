@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import MysticalStar from '@/components/MysticalStar'
+import MysticalStar from '/components/MysticalStar'
 import LinkTree from '../components/LinkTree'
-import BackgroundSparkles from '@/components/BackgroundSparkles'
+import BackgroundSparkles from '../components/BackgroundSparkles'
 
 export default function Home() {
   const [viewCount, setViewCount] = useState(8)
