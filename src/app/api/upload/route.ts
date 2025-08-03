@@ -9,14 +9,24 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
     const file = formData.get('file') as File
-    const key = formData.get('key') as string
     
-    // Basic authentication check (optional - remove if you don't want auth on upload)
-    const authHeader = request.headers.get('authorization')
     if (!file) {
       return NextResponse.json(
         { error: 'No file provided' },
-        { status: 400 }
+        { 
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      )
+    }
+
+    if (!(file instanceof File)) {
+      return NextResponse.json(
+        { error: 'Invalid file format' },
+        { 
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        }
       )
     }
 
@@ -49,12 +59,16 @@ export async function POST(request: NextRequest) {
       url: fullUrl,
       deleteUrl: `${baseUrl}/api/delete/${fileId}`,
       name: file.name,
-      type: file.type,
+      type: file.type || 'application/octet-stream',
       size: file.size
     }
 
     console.log('File uploaded successfully:', response)
-    return NextResponse.json(response)
+    return NextResponse.json(response, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
   } catch (error) {
     console.error('Upload error:', error)
     return NextResponse.json(
