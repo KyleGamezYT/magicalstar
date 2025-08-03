@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { validateCredentials } from '../../config/auth'
 
 interface LoginFormProps {
   onLogin: (username: string) => void
@@ -20,8 +21,8 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
     // Simulate authentication delay
     await new Promise(resolve => setTimeout(resolve, 1000))
 
-    // Simple authentication (you can replace this with real auth)
-    if (username === 'Mxtor' && password === 'mxt0r') {
+    // Use configuration-based authentication
+    if (validateCredentials(username, password)) {
       onLogin(username)
     } else {
       setError('Invalid username or password')
