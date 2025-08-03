@@ -4,7 +4,7 @@
   "Name": "Kyle's Mystical ShareX",
   "DestinationType": "ImageUploader, TextUploader, FileUploader",
   "RequestMethod": "POST",
-  "RequestURL": "https://your-repl-name.your-username.repl.co/api/upload",
+  "RequestURL": "https",
   "Body": "MultipartFormData",
   "FileFormName": "file",
   "URL": "$json:url$",
