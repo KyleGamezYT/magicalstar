@@ -11,5 +11,5 @@
     "secret": "KEYGOESHERE"
   },
   "URL": "$response$",
-  "ErrorMessage": "$response$"
+  "ErrorMessage": $response$
 }

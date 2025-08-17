@@ -36,7 +36,12 @@ const nextConfig = {
         source: '/instagram',
         destination: 'https://www.instagram.com/tactilekyle/',
         permanent: false,
-      },
+      }, 
+      {
+        source: '/karaoke',
+        destination: 'https://medal.tv/games/roblox/clips/kUU2CeHAjBXbWP2yH?invite=cr-MSxvNGcsNDE0MDc5ODMx&v=133',
+        permanent: false,
+      }, 
     ]
   },
 }
