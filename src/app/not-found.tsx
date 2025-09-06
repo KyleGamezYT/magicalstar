@@ -1,13 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-<<<<<<< HEAD
 import MysticalStar from '@/components/MysticalStar'
 import BackgroundSparkles from '@/components/BackgroundSparkles'
-=======
-import MysticalStar from '../components/MysticalStar'
-import BackgroundSparkles from '../components/BackgroundSparkles'
->>>>>>> 71b3cc6c0b1b3674c234eb3b766b4f31efa5b2e3
 
 export default function NotFound() {
   return (
@@ -47,13 +42,6 @@ export default function NotFound() {
               >
                 Return Home
               </Link>
-              
-              <Link 
-                href="/sharex-dashboard"
-                className="block w-full bg-white/5 text-gray-300 border border-white/10 rounded-lg px-6 py-3 font-medium hover:bg-white/10 transition-all duration-300"
-              >
-                ShareX Dashboard
-              </Link>
             </div>
 
             {/* Decorative Elements */}
@@ -67,8 +55,4 @@ export default function NotFound() {
       </div>
     </main>
   )
-<<<<<<< HEAD
-} 
-=======
-} 
->>>>>>> 71b3cc6c0b1b3674c234eb3b766b4f31efa5b2e3
+}

@@ -1,13 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-<<<<<<< HEAD
 import MysticalStar from '@/components/MysticalStar'
 import BackgroundSparkles from '@/components/BackgroundSparkles'
-=======
-import MysticalStar from '../components/MysticalStar'
-import BackgroundSparkles from '../components/BackgroundSparkles'
->>>>>>> 71b3cc6c0b1b3674c234eb3b766b4f31efa5b2e3
 
 export default function GlobalError({
   error,
@@ -91,8 +86,4 @@ export default function GlobalError({
       </body>
     </html>
   )
-<<<<<<< HEAD
-} 
-=======
-} 
->>>>>>> 71b3cc6c0b1b3674c234eb3b766b4f31efa5b2e3
+}

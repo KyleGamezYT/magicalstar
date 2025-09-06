@@ -14,7 +14,7 @@ const nextConfig = {
       },
       {
         source: '/tiktok',
-        destination: 'https://tiktok.com/@your-tiktok-username',
+        destination: 'https://www.tiktok.com/@your-tiktok-username',
         permanent: false,
       },
       {
@@ -38,8 +38,13 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/sharex',
-        destination: '/sharex-dashboard',
+        source: '/github',
+        destination: 'https://github.com/your-github-username',
+        permanent: false,
+      },
+      {
+        source: '/linkedin',
+        destination: 'https://linkedin.com/in/your-linkedin-username',
         permanent: false,
       },
     ]
