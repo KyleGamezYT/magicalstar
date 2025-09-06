@@ -1,0 +1,18 @@
+{
+  "Version": "13.4.0",
+  "Name": "MXTOR ShareX Dashboard (Simple)",
+  "DestinationType": "ImageUploader, FileUploader, TextUploader",
+  "RequestMethod": "POST",
+  "RequestURL": "https://mxtor.net/api/upload",
+  "FileFormName": "file",
+  "Arguments": {
+    "type": "file"
+  },
+  "ResponseType": "Text",
+  "RegexList": [
+    "\"url\":\\s*\"([^\"]+)\"",
+    "\"id\":\\s*\"([^\"]+)\""
+  ],
+  "URL": "https://mxtor.net/sharex-dashboard/{json:$.id}",
+  "ThumbnailURL": "https://mxtor.net/sharex-dashboard/{json:$.id}"
+} 
