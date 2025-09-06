@@ -9,7 +9,8 @@ import {
   Github,
   Linkedin,
   Mail,
-  ExternalLink
+  ExternalLink,
+  Car
 } from 'lucide-react'
 
 interface LinkItem {
@@ -37,11 +38,11 @@ export default function LinkTree() {
       description: 'Short Videos'
     },
     {
-      name: 'Roblox',
-      url: '/roblox',
+      name: 'Steam',
+      url: '/steam',
       icon: <Gamepad2 className="w-5 h-5" />,
       color: 'text-blue-400',
-      description: 'Gaming & Development'
+      description: 'Gaming & Modding'
     },
     {
       name: 'Instagram',
@@ -57,12 +58,13 @@ export default function LinkTree() {
       color: 'text-gray-300',
       description: 'Code & Projects'
     },
+    
     {
-      name: 'LinkedIn',
-      url: '/linkedin',
-      icon: <Linkedin className="w-5 h-5" />,
-      color: 'text-blue-300',
-      description: 'Professional Network'
+      name: 'GearShift',
+      url: '/gearshift',
+      icon: <Car className="w-5 h-5" />,
+      color: 'text-orange-400',
+      description: 'Connecting Car Culture - In Development'
     },
     {
       name: 'Contact',

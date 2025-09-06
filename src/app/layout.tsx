@@ -5,7 +5,7 @@ import ErrorBoundary from '@/components/ErrorBoundary'
 export const metadata: Metadata = {
   title: 'Kyle - Portfolio',
   description: 'Kyle\'s mystical portfolio showcasing skills and projects',
-  keywords: ['portfolio', 'developer', 'full stack', 'mystical', 'kyle'],
+  keywords: ['portfolio', '', 'full stack', 'mystical', 'kyle'],
   authors: [{ name: 'Kyle' }],
   creator: 'Kyle',
   openGraph: {

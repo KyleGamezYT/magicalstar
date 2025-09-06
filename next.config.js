@@ -14,12 +14,12 @@ const nextConfig = {
       },
       {
         source: '/tiktok',
-        destination: 'https://www.tiktok.com/@your-tiktok-username',
+        destination: 'https://www.tiktok.com/@mxtorkyle',
         permanent: false,
       },
       {
         source: '/cashapp',
-        destination: 'https://cash.app/$your-cashapp-username',
+        destination: 'https://cash.app/$TactileKyle',
         permanent: false,
       },
       {
@@ -28,8 +28,8 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/roblox',
-        destination: 'https://www.roblox.com/users/145593283/profile',
+        source: '/steam',
+        destination: 'https://steamcommunity.com/id/MxtorKyle/',
         permanent: false,
       },
       {
@@ -39,12 +39,13 @@ const nextConfig = {
       },
       {
         source: '/github',
-        destination: 'https://github.com/your-github-username',
+        destination: 'https://github.com/tactilekyle',
         permanent: false,
       },
+      
       {
-        source: '/linkedin',
-        destination: 'https://linkedin.com/in/your-linkedin-username',
+        source: '/gearshift',
+        destination: 'https://www.tiktok.com/@getgearshift',
         permanent: false,
       },
     ]
