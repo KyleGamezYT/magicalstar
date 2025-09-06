@@ -48,6 +48,11 @@ const nextConfig = {
         destination: 'https://www.tiktok.com/@getgearshift',
         permanent: false,
       },
+      {
+        source: '/m3dyl-singing-keisha-keys',
+        destination: 'https://medal.tv/games/roblox/clips/kUU2CeHAjBXbWP2yH?invite=cr-MSxvNGcsNDE0MDc5ODMx&v=133',
+        permanent: false,
+      },
     ]
   },
 }

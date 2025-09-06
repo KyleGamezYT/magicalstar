@@ -62,7 +62,6 @@ export default function Home() {
             </p>
             <div className="flex items-center justify-center space-x-2 text-xs sm:text-sm text-gray-500">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse-slow" />
-              <span>Full Stack Developer</span>
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse-slow" />
             </div>
           </motion.div>

@@ -78,9 +78,19 @@ export default function LinkTree() {
   return (
     <nav className="space-y-3 sm:space-y-4" role="navigation" aria-label="Social links">
       {links.map((link, index) => (
-        <motion.a
+        <motion.button
           key={link.name}
-          href={link.url}
+          onClick={() => {
+            if (link.name === 'Contact') {
+              navigator.clipboard.writeText('kyle@mxtor.net').then(() => {
+                alert('Email copied to clipboard: kyle@mxtor.net');
+              }).catch(() => {
+                alert('Email: kyle@mxtor.net');
+              });
+            } else {
+              window.open(link.url, '_blank', 'noopener,noreferrer');
+            }
+          }}
           className="group block w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-5 text-glow-white hover:bg-white/10 hover:border-glow-blue/30 transition-all duration-300 shadow-lg hover:shadow-glow-blue/20 focus:outline-none focus:ring-2 focus:ring-glow-blue/50 focus:ring-offset-2 focus:ring-offset-mystical-black"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,8 +102,6 @@ export default function LinkTree() {
           }}
           whileTap={{ scale: 0.98 }}
           aria-label={`Visit ${link.name}${link.description ? ` - ${link.description}` : ''}`}
-          target={link.url.startsWith('/') ? '_blank' : undefined}
-          rel={link.url.startsWith('/') ? 'noopener noreferrer' : undefined}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 sm:space-x-4 min-w-0 flex-1">
@@ -123,7 +131,7 @@ export default function LinkTree() {
               <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
             </motion.div>
           </div>
-        </motion.a>
+        </motion.button>
       ))}
     </nav>
   )
