@@ -55,13 +55,14 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-glow-white animate-glow tracking-wider">
-              kyle
+              Kyle
             </h1>
             <p className="text-gray-400 text-base sm:text-lg font-medium tracking-wide">
               nj
             </p>
             <div className="flex items-center justify-center space-x-2 text-xs sm:text-sm text-gray-500">
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse-slow" />
+              if they talking behind your back, just fart twin
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse-slow" />
             </div>
           </motion.div>
